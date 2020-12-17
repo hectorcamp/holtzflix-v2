@@ -1,0 +1,41 @@
+#!/bin/bash
+# Title:      Service rclone para o tdrive
+# Authors:    Holtzmann
+# URL:        http://luitech.com.br
+################################################################################
+[Unit]
+Description=tdrive Daemon
+After=multi-user.target
+
+[Service]
+Type=notify
+EnvironmentFile=/opt/appdata/plexguide/rclone.env
+ExecStart=/usr/bin/rclone mount tdrive: /mnt/tdrive \
+--config=/opt/appdata/plexguide/rclone.conf \
+--log-file=/var/plexguide/logs/rclone-tdrive.log \
+--log-level NOTICE \
+--uid=1000 --gid=1000 --umask=002 \
+--allow-other \
+--dir-cache-time 24h \
+--tpslimit 10 \
+--user-agent HoltzFlix \
+--drive-skip-gdocs \
+--poll-interval=15s \
+--vfs-cache-mode full \
+--cache-dir=/mnt/cache \
+--vfs-read-ahead=8M \
+--vfs-cache-poll-interval=1m \
+--vfs-cache-max-age 720h \
+--vfs-cache-max-size 50G \
+--vfs-read-chunk-size 16M \
+--vfs-read-chunk-size-limit 64M \
+--buffer-size=8M \
+--use-mmap \
+--vfs-case-insensitive
+ExecStop=/bin/fusermount -uz /mnt/tdrive > /dev/null
+TimeoutSec=60
+User=0
+Group=0
+
+[Install]
+WantedBy=multi-user.target
