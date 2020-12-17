@@ -61,6 +61,12 @@ sudo cp /opt/holtzflix-v2/services/tdrive.service /etc/systemd/system/
 echo
 sleep 1
 
+echo "Tire o comentário do fuse.conf"
+echo
+sudo nano /etc/fuse.conf
+echo
+sleep 1
+
 echo "Habilitando Serviços"
 sleep 1
 sudo systemctl enable gdrive.service 
