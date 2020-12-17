@@ -30,3 +30,16 @@ services:
         - /etc/localtime:/etc/localtime
         - /dev/shm:/ram_transcode
         restart: unless-stopped
+    tautulli:
+        image: linuxserver/tautulli:latest
+        container_name: tautulli
+        environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=America/Sao_Paulo
+        volumes:
+        - /opt/appconfig/tautulli:/config
+        - /opt/appconfig/logs/tautulli:/logs
+        ports:
+        - 8181:8181
+        restart: unless-stopped
