@@ -9,7 +9,7 @@ ATENÇÃO!!!!
 
 Não execute o procedimento usando o root. Crie um usuário e de permissão de sudo a ele!
 
-Informações:
+Informações sobre a montagem:
 
 O Sistema pode usar o Drive ou Drive de equipe, basta você escolher o que deseja usar.
 O tamanho do cache do rclone está configurado para 50GB
@@ -22,7 +22,14 @@ Altere as opções que deseja no serviço (gdrive.service ou tdrive.service)
 sudo systemstl daemon-reload
 sudo systemctl restart gdrive.service ou tdrive.service
 
+Informações sobre o backup:
 
+1) O backup está configurado para ser executado todo domindo às 2:30AM.
+
+2) O arquivo será salvo no caminho /mnt/gdrive/backup e /mnt/tdrive/backup
+Se você não tiver a pasta backup criada em seu disco, crie.
+
+3)Durante o backup todos os serviços de streaming ficarão indisponíveis
 
 <pre>
 

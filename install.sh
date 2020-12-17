@@ -111,7 +111,7 @@ sleep 1
 echo "Sucesso na cópia, backup configurado"
 echo
 sleep 1
-echo "Instalação Completa."
+echo "Instalação Completa. Reinicie o computador para aplicar todas as configurações"
 echo
 sleep 1
 exit
