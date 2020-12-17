@@ -27,6 +27,7 @@ sleep 1
 echo "ATENÇÃO - Configure seu rclone com os nomes dos drivers de gdrive e tdrive"
 echo
 rclone config
+sudo chown -R 1000:1000 ~/.config
 echo
 sleep 1
 
@@ -78,6 +79,8 @@ sleep 1
 sudo systemctl enable gdrive.service 
 sudo systemctl enable tdrive.service
 sudo systemctl daemon-reload
+sudo systemctl start gdrive.service
+sudo systemctl start tdrive.service
 echo
 sleep 1
 
