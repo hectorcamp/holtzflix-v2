@@ -1,7 +1,7 @@
 # holtzflix-v2
 
 
-Este script tem como finalidade a instalação do docker, docker compose e todos os containers básicos para funconamento de um servidor de streaming utilizando o rclone para transporte de arquivos.
+Este script tem como finalidade a instalação do docker, docker compose e todos os containers básicos para funcionamento de um servidor de streaming utilizando o rclone para transporte de arquivos.
 
 Será instalado: Tautulli / Plex / Emby
 
