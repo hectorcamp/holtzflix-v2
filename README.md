@@ -5,12 +5,26 @@ Este script tem como finalidade a instalação do docker, docker compose e todos
 
 Será instalado: Tautulli / Plex / Emby
 
-<pre>
-
 ATENÇÃO!!!!
 
 Não execute o procedimento usando o root. Crie um usuário e de permissão de sudo a ele!
 
+Informações:
+
+O Sistema pode usar o Drive ou Drive de equipe, basta você escolher o que deseja usar.
+O tamanho do cache do rclone está configurado para 50GB
+O tempo do cache em disco é de 720h
+
+Caso queira alterar as opções, faça direto no serviço correspondente. lembrando que isto irá invalidar o cache e um novo deverá ser criado. Para isto faça:
+
+sudo rm -r /mnt/cache/*
+Altere as opções que deseja no serviço (gdrive.service ou tdrive.service)
+sudo systemstl daemon-reload
+sudo systemctl restart gdrive.service ou tdrive.service
+
+
+
+<pre>
 
 adduser seu_user
 usermob -aG sudo seu_user
