@@ -26,7 +26,7 @@ sudo systemctl restart gdrive.service ou tdrive.service
 ____________________________________________________________________________________________________________________
 Informações sobre o backup:
 
-1) O backup está configurado para ser executado todo domindo às 2:30AM.
+1) O backup está configurado para ser executado todo Domingo às 2:30AM.
 
 2) O arquivo será salvo no caminho /mnt/gdrive/backup e /mnt/tdrive/backup
 Se você não tiver a pasta backup criada em seu disco, crie.
