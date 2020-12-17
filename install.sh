@@ -56,8 +56,8 @@ sleep 1
 
 echo "Copiando os serviços"
 echo
-sudo cp /opt/holtzflix/services/gdrive.service /etc/systemd/system/
-sudo cp /opt/holtzflix/services/tdrive.service /etc/systemd/system/
+sudo cp /opt/holtzflix-v2/services/gdrive.service /etc/systemd/system/
+sudo cp /opt/holtzflix-v2/services/tdrive.service /etc/systemd/system/
 echo
 sleep 1
 
@@ -87,9 +87,9 @@ sleep 1
 
 echo "Copiando os arquivos de backup para o cronjob."
 echo
-sudo cp /opt/holtzflix/backup-all.sh /opt/bkp/
+sudo cp /opt/holtzflix-v2/backup-all.sh /opt/bkp/
 sudo chmod +x /opt/bkp/backup-all.sh
-sudo cp /opt/holtzflix/bkp-cron /etc/cron.d/
+sudo cp /opt/holtzflix-v2/bkp-cron /etc/cron.d/
 echo
 sleep 1
 
