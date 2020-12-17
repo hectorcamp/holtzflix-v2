@@ -9,5 +9,5 @@ Será instalado: Portainer / Tautulli / Plex / Emby
 sudo apt-get update && sudo apt upgrade -y
 sudo apt-get install git -y
 sudo rm -rf /opt/holtzflix-v2 && sudo git clone https://github.com/luizfeliperc/holtzflix-v2.git /opt/holtzflix-v2
-cd /opt/holtzflix && sudo bash install.sh
+cd /opt/holtzflix-v2 && sudo bash install.sh
 </pre>
