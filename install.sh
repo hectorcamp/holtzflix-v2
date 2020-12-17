@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script para instalação dos containers básicos para Streaming com utilização do PGBlitz com cache VFS FULL
+# Script para instalação dos containers básicos para Streaming com utilização do Rclone com cache VFS FULL
 
 echo "Atualizando pacotes"
 sudo apt update -y && sudo apt dist-upgrade -y
@@ -15,6 +15,12 @@ sleep 1
 echo "Configurando o Time Zone e idioma!"
 echo
 sudo dpkg-reconfigure tzdata && sudo dpkg-reconfigure locales
+echo
+sleep 1
+
+echo "Instalando o RCLONE"
+echo
+curl https://rclone.org/install.sh | sudo bash
 echo
 sleep 1
 
@@ -45,45 +51,28 @@ sudo docker-compose up -d
 echo
 sleep 1
 
-echo "Instalando o PGBlitz"
-echo
-sudo rm -rf /opt/plexguide && sudo rm -rf /opt/pgstage && sudo apt install curl -y && curl -s https://raw.githubusercontent.com/PGBlitz/Install/v8.5/install.sh | sudo -H sh
-sudo pgblitz
-echo
-sleep 1
-
-echo "Atualizando a versão do rclone"
-echo
-curl https://rclone.org/install.sh | sudo bash
-echo
-sleep 1
-
 echo "criando a pasta de cache do rclone"
 echo
-sudo mkdir /mnt/cache
+sudo mkdir /mnt/cache /mnt/gdrive /mnt/tdrive /mnt/logs
+sudo chown -R 1000:1000 /mnt/cache
+sudo chown -R 1000:1000 /mnt/gdrive
+sudo chown -R 1000:1000 /mnt/tdrive
+sudo chown -R 1000:1000 /mnt/logs
 echo
 sleep 1
 
-echo "Parando os serviços do rclone"
-sudo systemctl stop tdrive.service
-sudo systemctl stop gdrive.service
-sudo systemctl stop pgblitz.service
-echo
-sleep 1
-
-echo "Substituindo os serviços"
+echo "Copiando os serviços"
 echo
 sudo cp /opt/holtzflix/services/gdrive.service /etc/systemd/system/
 sudo cp /opt/holtzflix/services/tdrive.service /etc/systemd/system/
-sudo cp /opt/holtzflix/scripts/pgblitz.sh /opt/appdata/plexguide/
-sudo chmod +x /opt/appdata/plexguide/pgblitz.sh
 echo
 sleep 1
 
-echo "Iniciando os serviços do rclone"
-sudo systemctl start tdrive.service
-sudo systemctl start gdrive.service
-sudo systemctl start pgblitz.service
+echo "Habilitando Serviços"
+sleep 1
+sudo systemctl enable gdrive.service 
+sudo systemctl enable tdrive.service
+sudo systemctl daemon-reload
 echo
 sleep 1
 
@@ -92,7 +81,7 @@ echo
 sudo rm -rf /opt/bkp
 sudo rm /etc/cron.d/bkp-cron
 sudo mkdir /opt/bkp
-sudo chown -R holtz:holtz /opt/bkp
+sudo chown -R 1000:1000 /opt/bkp
 echo
 sleep 1
 
@@ -107,7 +96,7 @@ sleep 1
 echo "Sucesso na cópia, backup configurado"
 echo
 sleep 1
-echo "Instalação Completa. Reinicie seu computador"
+echo "Instalação Completa. Configure seu rclone com os drives com os nomes gdrive e tdrive, após isto reinicie seu computador"
 echo
 sleep 1
 exit

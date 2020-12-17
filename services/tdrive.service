@@ -9,10 +9,8 @@ After=multi-user.target
 
 [Service]
 Type=notify
-EnvironmentFile=/opt/appdata/plexguide/rclone.env
 ExecStart=/usr/bin/rclone mount tdrive: /mnt/tdrive \
---config=/opt/appdata/plexguide/rclone.conf \
---log-file=/var/plexguide/logs/rclone-tdrive.log \
+--log-file=/mnt/logs/rclone-tdrive.log \
 --log-level NOTICE \
 --uid=1000 --gid=1000 --umask=002 \
 --allow-other \
@@ -34,8 +32,8 @@ ExecStart=/usr/bin/rclone mount tdrive: /mnt/tdrive \
 --vfs-case-insensitive
 ExecStop=/bin/fusermount -uz /mnt/tdrive > /dev/null
 TimeoutSec=60
-User=0
-Group=0
+User=1000
+Group=1000
 
 [Install]
 WantedBy=multi-user.target
