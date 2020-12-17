@@ -31,6 +31,9 @@ Se você não tiver a pasta backup criada em seu disco, crie.
 
 3)Durante o backup todos os serviços de streaming ficarão indisponíveis
 
+Abaixo segue o procedimento de instalação.
+
+
 <pre>
 
 adduser seu_user
