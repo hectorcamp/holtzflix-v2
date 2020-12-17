@@ -9,6 +9,7 @@ ATENÇÃO!!!!
 
 Não execute o procedimento usando o root. Crie um usuário e de permissão de sudo a ele!
 
+____________________________________________________________________________________________________________________
 Informações sobre a montagem:
 
 O Sistema pode usar o Drive ou Drive de equipe, basta você escolher o que deseja usar.
@@ -22,6 +23,7 @@ Altere as opções que deseja no serviço (gdrive.service ou tdrive.service)
 sudo systemstl daemon-reload
 sudo systemctl restart gdrive.service ou tdrive.service
 
+____________________________________________________________________________________________________________________
 Informações sobre o backup:
 
 1) O backup está configurado para ser executado todo domindo às 2:30AM.
@@ -31,6 +33,8 @@ Se você não tiver a pasta backup criada em seu disco, crie.
 
 3)Durante o backup todos os serviços de streaming ficarão indisponíveis
 
+
+___________________________________________________________________________________________________________________
 Abaixo segue o procedimento de instalação.
 
 
