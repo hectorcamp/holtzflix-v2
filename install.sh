@@ -24,6 +24,12 @@ curl https://rclone.org/install.sh | sudo bash
 echo
 sleep 1
 
+echo "ATENÇÃO - Configure seu rclone com os nomes dos drivers de gdrive e tdrive"
+echo
+rclone config
+echo
+sleep 1
+
 echo "Instalando o Docker"
 echo
 sudo curl -fsSl https://get.docker.com | bash
@@ -102,7 +108,7 @@ sleep 1
 echo "Sucesso na cópia, backup configurado"
 echo
 sleep 1
-echo "Instalação Completa. Configure seu rclone com os drives com os nomes gdrive e tdrive, após isto reinicie seu computador"
+echo "Instalação Completa."
 echo
 sleep 1
 exit
