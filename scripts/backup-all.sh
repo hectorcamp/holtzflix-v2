@@ -19,7 +19,8 @@ echo
 sleep 30
 
 echo "Iniciando a cópia do arquivo"
-sudo cp /tmp/$(hostname).* /mnt/unionfs/backup
+sudo cp /tmp/$(hostname).* /mnt/gdrive/backup
+sudo cp /tmp/$(hostname).* /mnt/tdrive/backup
 echo
 sleep 1
 

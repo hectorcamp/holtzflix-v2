@@ -44,13 +44,6 @@ cp docker-compose.yml ~/
 echo
 sleep 1
 
-echo "Subindo os containers"
-echo
-cd ~/
-sudo docker-compose up -d
-echo
-sleep 1
-
 echo "criando a pasta de cache do rclone"
 echo
 sudo mkdir /mnt/cache /mnt/gdrive /mnt/tdrive /mnt/logs
@@ -73,6 +66,13 @@ sleep 1
 sudo systemctl enable gdrive.service 
 sudo systemctl enable tdrive.service
 sudo systemctl daemon-reload
+echo
+sleep 1
+
+echo "Subindo os containers"
+echo
+cd ~/
+sudo docker-compose up -d
 echo
 sleep 1
 
