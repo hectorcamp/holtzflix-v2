@@ -41,7 +41,7 @@ Abaixo segue o procedimento de instalação.
 <pre>
 
 adduser seu_user
-usermob -aG sudo seu_user
+usermod -aG sudo seu_user
 
 sudo apt-get update && sudo apt upgrade -y
 sudo apt-get install git -y
